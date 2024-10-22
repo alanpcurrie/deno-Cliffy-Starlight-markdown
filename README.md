@@ -1,6 +1,6 @@
 # Deno Cliffy Starlight markdown
 
-![Logo](logo.png)
+![Logo](logo-min.png)
 
 
 # Markdown Organiser for Starlight Documentation
