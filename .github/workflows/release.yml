@@ -70,6 +70,11 @@ jobs:
       - name: Build binary
         run: deno compile --allow-read --allow-write --target ${{ matrix.target }} --output ${{ matrix.output }} main.ts
 
+      - name: Set executable permissions (Unix)
+        if: runner.os != 'Windows'
+        run: chmod +x ${{ matrix.output }}
+        shell: bash
+
       - name: Upload Release Asset
         uses: actions/upload-release-asset@v1
         env:
