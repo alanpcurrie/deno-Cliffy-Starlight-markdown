@@ -31,14 +31,19 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
         include:
           - os: ubuntu-latest
             output: deno-cliffy-md-linux
+            target: x86_64-unknown-linux-gnu
           - os: windows-latest
             output: deno-cliffy-md-windows.exe
+            target: x86_64-pc-windows-msvc
           - os: macos-latest
-            output: deno-cliffy-md-macos
+            output: deno-cliffy-md-macos-x86_64
+            target: x86_64-apple-darwin
+          - os: macos-latest
+            output: deno-cliffy-md-macos-arm64
+            target: aarch64-apple-darwin
 
     steps:
       - name: Checkout code
@@ -63,7 +68,7 @@ jobs:
         run: deno cache --reload main.ts
 
       - name: Build binary
-        run: deno compile --allow-read --allow-write --output ${{ matrix.output }} main.ts
+        run: deno compile --allow-read --allow-write --target ${{ matrix.target }} --output ${{ matrix.output }} main.ts
 
       - name: Upload Release Asset
         uses: actions/upload-release-asset@v1
