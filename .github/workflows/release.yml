@@ -49,10 +49,18 @@ jobs:
         with:
           deno-version: v1.x
 
+      - name: Remove lockfile (Windows)
+        if: runner.os == 'Windows'
+        run: Remove-Item -Force -ErrorAction SilentlyContinue deno.lock
+        shell: pwsh
+
+      - name: Remove lockfile (Unix)
+        if: runner.os != 'Windows'
+        run: rm -f deno.lock
+        shell: bash
+
       - name: Cache dependencies
-        run: |
-          rm -f deno.lock
-          deno cache --reload main.ts
+        run: deno cache --reload main.ts
 
       - name: Build binary
         run: deno compile --allow-read --allow-write --output ${{ matrix.output }} main.ts
