@@ -49,6 +49,11 @@ jobs:
         with:
           deno-version: v1.x
 
+      - name: Cache dependencies
+        run: |
+          rm -f deno.lock
+          deno cache --reload main.ts
+
       - name: Build binary
         run: deno compile --allow-read --allow-write --output ${{ matrix.output }} main.ts
 
