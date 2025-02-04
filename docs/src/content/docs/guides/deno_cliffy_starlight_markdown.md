@@ -42,34 +42,6 @@ The project includes the following task:
 4. `processReadmeFile`: Processes a single README.md file, copying it to the guides directory and updating the Starlight config.
 5. `organiseReadmeFiles`: Main function that walks through the input directory and processes README files.
 
-## Releases
-
-You can find the latest releases of this tool on the [releases page](https://github.com/alanpcurrie/deno-cliffy-md/releases).
-
-## Installation
-
-You can install this tool in two ways:
-
-### Pre-built Binaries
-
-Download the pre-built binary for your platform from the [releases page](https://github.com/alanpcurrie/deno-cliffy-md/releases). Available for:
-- Linux
-- Windows
-- macOS
-
-### Build from Source
-
-If you have Deno installed, you can build from source:
-
-```bash
-# Clone the repository
-git clone https://github.com/alanpcurrie/deno-cliffy-md.git
-cd deno-cliffy-md
-
-# Build the binary
-deno compile --allow-read --allow-write main.ts
-```
-
 ## Deno Compile
 
 You can compile this project into a single executable using Deno's compile feature. This is  useful for distributing the tool to users who don't have Deno installed.

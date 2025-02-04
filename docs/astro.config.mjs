@@ -24,7 +24,8 @@ export default defineConfig({
             { label: 'nanook', link: '/guides/nanook' },
             { label: 'nanookish', link: '/guides/nanookish' },
             { label: 'duke', link: '/guides/duke' },
-          ],
+          
+    { label: 'Deno Cliffy Starlight markdown', link: '/guides/deno_cliffy_starlight_markdown' },],
         },
         {
           label: "Reference",
